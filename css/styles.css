@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bitcount Prop Double", system-ui;
+}
+
+h1, h2 {
+    color: rgb(238, 255, 0);
+}
+
+a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: line-through;
+}
+
+body {
+    background-color: blue;
+}
+
+img, iframe {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: bisque;
+}
+
+.galeria > figure {
+    width:25%;
+    border: greenyellow spx solid;
+}
