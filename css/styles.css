@@ -3,14 +3,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Bitcount Prop Double", system-ui;
+    scroll-behavior: smooth;
 }
 
 h1, h2 {
-    color: rgb(238, 255, 0);
+    color: rgb(0, 0, 0);
+
 }
 
 a {
-    color: blueviolet;
+    color: rgb(226, 43, 43);
     text-decoration: none;
 }
 
@@ -19,7 +21,7 @@ a:hover {
 }
 
 body {
-    background-color: blue;
+    background-color: rgb(255, 255, 255);
 }
 
 img, iframe {
@@ -29,12 +31,55 @@ img, iframe {
 
 .galeria {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    background-color: bisque;
+    background-color: rgb(180, 231, 255);
 }
 
-.galeria > figure {
+.galeria > * {
     width:25%;
-    border: greenyellow spx solid;
+    border: rgb(0, 0, 0) 3px solid;
 }
+
+header, section {
+     border: rgb(128, 128, 128) 3px solid;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+}
+
+section {
+    min-height: 100vh;
+}
+
+header {
+    min-height: calc(100vh - 3em);
+    background-image: url(../img/nuevoedificio.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header > h1 {
+    font-size: 6vw;
+    text-align: right;
+}
+
+/* maquetar menu */
+#menu {
+    position: sticky;
+    top: 0;
+}
+#menu > ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+#menu > ul > li {
+    list-style: none;
+    border: black 3px solid;
+    height: 3em;
+    display: flex;
+    align-items: center;
+}
+
