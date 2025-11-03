@@ -5,143 +5,99 @@
     <meta charset="UTF-8">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RuPaul's DragCon - NYC Convention</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&display=swap" rel="stylesheet">
 
 </head>
+git config --global user.email "sanzmartinezdesalinas2@gmail.com"
+  git config --global user.name "lilolay69"
 
 <body>
-    <header>
-        <h1>Repaso de HTML5, CSS3 y RWD</h1>
-    </header>
 
-      <nav id="menu">
-            <ul>
-                <li><a href="#uni">UDIT</a></li>
-                <li><a href="#titulos">Titulaciones</a></li>
-                <li><a href="#exito">Casos de éxito</a></li>
-                <li><a href="#contacto">Contáctanos</a></li>
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="https://ik.imagekit.io/luciasanz/logogpequen%CC%83o.png?updatedAt=1762128873570" alt="Logo de RuPaul's DragCon" class="dragcon-logo">
+        </div>
+        
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-expanded="false" aria-controls="navigation-menu">☰</button>
+            
+            <ul class="nav-menu" id="navigation-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="programa.html">Programa</a></li>
+                <li><a href="entradas.html">Entradas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
+    </header>
 
     <main>
-
-        <section id="uni">
-            <h2>UDIT</h2>
-            <p>UDIT es la primera y única Universidad especializada en Diseño, Innovación y Tecnología de España. Representa la culminación de los más de 20 años del proyecto educativo de la prestigiosa Escuela Universitaria de Diseño ESNE. Somos una Universidad privada afincada en Madrid. Nuestro campus cuenta con más de 21.000 metros cuadrados  distribuidos en tres edificios. Contamos con más de 3.000 alumnos que viven en las aulas e instalaciones su pasión por el diseño y la tecnología en todas las especialidades posibles. En el curso 2024-2025 nuestra institución creció con un nuevo y espectacular Campus dedicado a acoger a todos los estudiantes de las titulaciones de las áreas de Tecnología, Innovación y Ciencias Aplicadas de la Universidad.</p>
+             <section class="carousel-simple" aria-label="Galería">
+            <div class="carousel-wrapper">
+                <div class="carousel-item">
+                    <img src="https://ik.imagekit.io/luciasanz/dragcon-lede.jpg.webp?updatedAt=1762129052833" alt="DragCon 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://ik.imagekit.io/luciasanz/RuPaul-Dragcon-02.jpg.webp?updatedAt=1762129655559" alt="DragCon 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://ik.imagekit.io/luciasanz/5A8B1396-1-1.jpg?updatedAt=1762129036332" alt="DragCon 3">
+                </div>
+            </div>
+             <div class="scroll-hint" aria-hidden="true">
+                <span class="label">Desliza</span>
+            </div>
+        </section>
+       
+        <section class="hero-section">
+            <h1>¡Únete a la Celebración Drag Más Grande del Mundo!</h1>
+            <p>La convención de Nueva York vuelve con más queens, shows y diversión.</p>
+            <a href="entradas.html" class="cta-button">Compra tus Entradas</a>
         </section>
 
-        <section id="titulos">
-            <h2>Titulaciones</h2>
-            <p>En UDIT ofrecemos multitud de titulaciones de grado, postgrado y doctorado en las áreas de diseño y tecnología</p>
-            <ul>
-                <li>Grados:
-                    <ul>
-                        <li>Diseño Multimedia y Gráfico</li>
-                        <li>Diseño Audiovisual e ilustración</li>
-                        <li>Diseño de Producto</li>
-
-                    </ul>
-                </li>
-                <li>Másteres:
-                    <ul>
-                        <li>UX para diseño de producto y servicios </li>
-                        <li>Diseño Gráfico</li>
-                        <li>Branding</li>
-                    
-                    </ul>
-                </li>
-                <li>Doctorados:
-                    <ul>
-                        <li>Diseño y tecnologías orientado empresa</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <section id="exito">
-            <h2>Casos de éxito</h2>
-            <div class="galeria">
-                <figure>
-                       <img src="img/materioteca.png" alt="">
-                    <figcaption>materioteca</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/medialab.png" alt="">
-                    <figcaption>medialab</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/nuevoedificio.jpeg" alt="">
-                    <figcaption>nuevoedificio</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/printlab.png" alt="">
-                    <figcaption>printlab</figcaption>
-                </figure>
-                  <figure>
-                       <img src="img/materioteca.png" alt="">
-                    <figcaption>materioteca</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/medialab.png" alt="">
-                    <figcaption>medialab</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/nuevoedificio.jpeg" alt="">
-                    <figcaption>nuevoedificio</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/printlab.png" alt="">
-                    <figcaption>printlab</figcaption>
-                </figure>  <figure>
-                       <img src="img/materioteca.png" alt="">
-                    <figcaption>materioteca</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/medialab.png" alt="">
-                    <figcaption>medialab</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/nuevoedificio.jpeg" alt="">
-                    <figcaption>nuevoedificio</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/printlab.png" alt="">
-                    <figcaption>printlab</figcaption>
-                </figure>  <figure>
-                       <img src="img/materioteca.png" alt="">
-                    <figcaption>materioteca</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/medialab.png" alt="">
-                    <figcaption>medialab</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/nuevoedificio.jpeg" alt="">
-                    <figcaption>nuevoedificio</figcaption>
-                </figure>
-                 <figure>
-                       <img src="img/printlab.png" alt="">
-                    <figcaption>printlab</figcaption>
-                </figure>
+        <section class="info-section">
+            <div class="info-card">
+                <h2>Fecha</h2>
+                <p>Por determinar (generalmente otoño)</p>
+            </div>
+            <div class="info-card">
+                <h2>Lugar</h2>
+                <p>Javits Center - Nueva York</p>
             </div>
         </section>
 
-        <section id="Contacto">
-            <h2>Contáctanos</h2>
-            <div class="galeria">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.8128474115283!2d-3.6719367234915588!3d40.45727905316972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42296df2c813b5%3A0xeb0bf0f2987adc7f!2sUDIT%20Universidad%20-%20Campus%20Internacional%20de%20Dise%C3%B1o%20e%20Industrias%20Creativas.%20Edificio%20Colombia%2C%2044!5e0!3m2!1ses!2ses!4v1757950505195!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.5698735312894!2d-3.63188120321045!3d40.4405223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422ed8ee5b256d%3A0xf355c34f2b6fe355!2sUDIT%20Formaci%C3%B3n%20Profesional%20Superior!5e0!3m2!1ses!2ses!4v1757950696503!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.8193745361973!2d-3.672258303210449!3d40.4571346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42292a2a67e76f%3A0x7661d685faad2ff8!2sUDIT%20Universidad%20-%20Campus%20Internacional%20de%20Dise%C3%B1o%20e%20Industrias%20Creativas%20(Sede%20principal)!5e0!3m2!1ses!2ses!4v1757950748366!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+        <section class="prices-section">
+            <h2>Tipos de Entrada (Ejemplo)</h2>
+            <div class="price-component">
+                <div class="price-option">
+                    <h3>Pase General (1 día)</h3>
+                    <p>Acceso a paneles y tiendas.</p>
+                    <p class="price">$70</p>
+                </div>
+                </div>
         </section>
-
+        
+        <section class="form-section" id="contacto">
+            <h2>Suscríbete a Nuestro Newsletter</h2>
+            <form id="subscription-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Suscribirme</button>
+            </form>
+             <div id="success-modal" class="modal">
+                 <div class="modal-content">
+                     <span class="close-button">&times;</span>
+                     <p>¡Gracias por suscribirte!</p>
+                 </div>
+             </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 UDIT - Todos los derechos reservados</p>
+        <p>&copy; 2025 RuPaul's DragCon. All rights reserved.</p>
     </footer>
-</body>
 
+</body>
 </html>

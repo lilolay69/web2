@@ -1,154 +1,338 @@
+:root {
+    --color-primary-pink: #e30b8a; /* Rosa fuerte del logo */
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --font-urbanist: 'Urbanist', sans-serif;
+}
+
+/* Reset y Base */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Bitcount Prop Double", system-ui;
-    scroll-behavior: smooth;
-}
-
-h1, h2 {
-    color: rgb(0, 0, 0);
-
-}
-
-a {
-    color: rgb(226, 43, 43);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: line-through;
 }
 
 body {
-    background-color: rgb(255, 255, 255);
+    font-family: var(--font-urbanist);
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-text-light);
 }
 
-img, iframe {
-    width: 100%;
-    vertical-align: middle;
+/* Tipografía */
+h1, h2, h3 {
+    font-family: var(--font-urbanist);
+    font-weight: 700; /* Bold */
+    color: var(--color-primary-pink);
+    margin-bottom: 0.5em;
 }
 
-.galeria {
-    display: flex;
+p, a, li, button, input {
+    font-weight: 400; /* Regular */
+}
+
+/* Header y Navegación (Uso de Flexbox para Layout Adaptable - Obligatorio) */
+.main-header {
+    background-color: var(--color-primary-pink);
+    padding: 1rem 5%;
+    display: flex; /* Flexbox */
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10%;
-}
-
-.galeria > * {
-    width: 30%;
-    border: green 3px solid;
-}
-
-.galeria > figure {
-    position: relative;
-}
-
-
-
-.galeria > figure > figcaption {
-    background-color: rgba(255, 0 , 255, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    font-size: 1.5em;
-    color: white;
-    font-weight: bold;
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.galeria > figure > figcaption:hover {
-  opacity: 100%;
-}
-
-header, section {
-     border: rgb(22, 22, 22) 3px solid;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-}
-
-section {
-    min-height: 100vh;
-    padding: 3% 10%;
-}
-
-header {
-    min-height: calc(100vh - 3em);
-    background-image: url(../img/nuevoedificio.jpeg);
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-header > h1 {
-    font-size: 6vw;
-    text-align: right;
-}
-
-section
-
-/* maquetar menu */
-#menu {
-    position: sticky;
-    top: 0;
-}
-#menu > ul {
-    display: flex;
-    justify-content: space-around;
-    padding: 0;
-}
-
-#menu > ul > li {
-    list-style: none;
-    border: black 3px solid;
-    height: 3em;
-    display: flex;
     align-items: center;
 }
 
-#uni > p {
-    font-size: 1.2%;
+.dragcon-logo {
+    max-height: 90px; /* Ajusta el tamaño del logo */
+    width: auto;
 }
 
-#menu {
-    z-index: 1%;
+.carousel-simple { 
+  width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw; /* saca el carrusel fuera del padding del main */
+    margin-right: -50vw;
+    margin-top: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    background: transparent; }
+
+.carousel-wrapper {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* ocultar scrollbar en Firefox */
 }
 
-@media screen and (max-width: 1200px) {
+.carousel-wrapper::-webkit-scrollbar { 
+    display: none; } /* Chrome/Safari */
 
-    .galeria > figure {
-        width: 45%;
+.carousel-item {
+    flex: 0 0 100vw; /* ancho del slide visible (ajusta) */
+    scroll-snap-align: center;
+    box-sizing: border-box;
+}
+.carousel-item img {
+    width: 100%;
+    height: min(80vh, 900px);
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-item { flex: 0 0 95%; }
+    .carousel-item img { height: 240px; }
+}
+
+/* Indicador de scroll dentro del carrusel */
+.carousel-simple { position: relative; }
+
+.scroll-hint {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.48);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 999px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    pointer-events: none; /* no interfiere con el scroll */
+    z-index: 20;
+    box-shadow: 0 6px 18px rgba(158, 47, 125, 0.25);
+    backdrop-filter: blur(4px);
+    animation: hint-swipe 1.6s ease-in-out infinite;
+}
+.scroll-hint .label {
+    font-size: 20px;
+    opacity: 0.95;
+}
+
+/* Animación ligera para indicar movimiento hacia la izquierda */
+@keyframes hint-swipe {
+    0%   { transform: translateY(-50%) translateX(0); opacity: 1; }
+    50%  { transform: translateY(-50%) translateX(-8px); opacity: 0.9; }
+    100% { transform: translateY(-50%) translateX(0); opacity: 1; }
+}
+
+/* Ajustes móviles: más pequeño y sólo el chevron */
+@media (max-width: 768px) {
+    .scroll-hint { right: 10px; padding: 6px 8px; font-size: 14px; }
+    .scroll-hint .label { display: none; }
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex; /* Flexbox para el menú desktop */
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-weight: 700;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Botón del menú (visible solo en móvil por defecto, oculto en desktop) */
+.menu-toggle {
+    display: none; /* Oculto en desktop */
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Secciones Principales */
+main {
+    padding: 20px 5%;
+}
+
+.hero-section {
+    background-color: var(--color-text-light);
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 3px solid var(--color-primary-pink);
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primary-pink);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+}
+
+.cta-button:hover {
+    opacity: 0.8;
+}
+
+/* Sección de Información (Uso de Flexbox - Adaptable) */
+.info-section {
+    display: flex; /* Flexbox */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.info-card {
+    flex: 1; /* Permite que las tarjetas crezcan/encojan */
+    min-width: 250px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario (Obligatorio Maquetado y Validación JS) */
+.form-section {
+    background-color: #fce4ec; /* Rosa muy claro */
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#subscription-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#subscription-form input {
+    padding: 10px;
+    border: 2px solid var(--color-primary-pink);
+    border-radius: 5px;
+}
+
+#subscription-form button {
+    background-color: var(--color-primary-pink);
+    color: var(--color-text-light);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+#subscription-form button:hover {
+    background-color: #a0065a; /* Tono más oscuro de rosa */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+    margin-top: 40px;
+}
+
+/* Diseño Responsive (Uso de Media Queries - Obligatorio) */
+@media (max-width: 768px) {
+    
+    .main-header {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        padding: 1rem;
     }
-}
 
-@media screen and (max-width:650px) {
-    section > h2 {
-     font-size: 1.5em;
+    .main-nav {
+        width: 100%; /* La navegación ocupa todo el ancho */
+        order: 3; /* Mueve la navegación debajo del logo */
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+        order: 2;
+    }
+
+    .nav-menu {
+        display: none; /* Oculta el menú por defecto (será JS el que lo muestre) */
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        background-color: rgba(0, 0, 0, 0.1); /* Fondo claro para el menú desplegable */
+        padding: 10px 0;
     }
     
-}
-
-@media screen and (max-width: 450px) {
-    .galeria > figure,
-    .galeria > figure {
-        width: 100%;
+    /* Clase para mostrar el menú con JS */
+    .nav-menu.active {
+        display: flex; 
     }
-    .galeria > figure > figcaption {
-        opacity: 100%;
-        position: static;
-        height: auto;
-        background-color: transparent;
-        color: black;
-        font-size: 1em;
-        font-weight: normal;
-        justify-content: start;
+
+    .nav-menu li {
+        text-align: center;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 10px;
+        color: var(--color-text-dark); /* Color de texto oscuro para el menú desplegado */
+    }
+    
+    .info-section {
+        flex-direction: column;
+    }
 }
 
+/* Estilos para Ventanas Modales (Obligatorio) */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
+}
+
+.modal-content {
+    background-color: var(--color-text-light);
+    margin: 15% auto; /* Centrado vertical/horizontal */
+    padding: 20px;
+    border: 3px solid var(--color-primary-pink);
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.close-button {
+    color: var(--color-text-dark);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--color-primary-pink);
+    text-decoration: none;
+    cursor: pointer;
 }
