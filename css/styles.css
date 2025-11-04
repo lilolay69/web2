@@ -1,11 +1,13 @@
 :root {
-    --color-primary-pink: #e30b8a; /* Rosa fuerte del logo */
+    --color-primary-pink: #e30b8a;
+    --color-secondary-magenta: #a0065a; 
     --color-text-dark: #333;
     --color-text-light: #fff;
     --font-urbanist: 'Urbanist', sans-serif;
+    --font-bitcount: 'Bitcount Prop Double', sans-serif; 
+    --padding-section: 40px 5%;
 }
 
-/* Reset y Base */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,121 +18,106 @@ body {
     font-family: var(--font-urbanist);
     line-height: 1.6;
     color: var(--color-text-dark);
-    background-color: var(--color-text-light);
+    background-color: #fff;
+    background-size: 80%; 
+    background-position: bottom center; 
 }
 
-/* Tipografía */
+@media (max-width: 768px) {
+    body {
+        background-size: 95%; 
+    }
+}
+
+
 h1, h2, h3 {
     font-family: var(--font-urbanist);
-    font-weight: 700; /* Bold */
+    font-weight: 900; 
     color: var(--color-primary-pink);
     margin-bottom: 0.5em;
 }
 
 p, a, li, button, input {
-    font-weight: 400; /* Regular */
+    font-weight: 400; 
 }
 
-/* Header y Navegación (Uso de Flexbox para Layout Adaptable - Obligatorio) */
 .main-header {
     background-color: var(--color-primary-pink);
-    padding: 1rem 5%;
-    display: flex; /* Flexbox */
+    padding: 2rem 2%;
+    display: flex; 
     justify-content: space-between;
     align-items: center;
+    position: fixed; 
+    top: 0;
+    width: 100%; 
+    z-index: 100;
+}
+
+main {
+    padding: 5%; 
+}
+
+.logo-container { 
+    display: flex; 
+    align-items: right; 
+    gap: 10px; 
+    padding-left: 5%;
+    
 }
 
 .dragcon-logo {
-    max-height: 90px; /* Ajusta el tamaño del logo */
+    max-height: 80px; 
     width: auto;
+    margin-left: 5%;
 }
-
-.carousel-simple { 
-  width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw; /* saca el carrusel fuera del padding del main */
-    margin-right: -50vw;
-    margin-top: 0;
-    padding: 0; 
-    box-sizing: border-box;
-    background: transparent; }
-
-.carousel-wrapper {
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* ocultar scrollbar en Firefox */
-}
-
-.carousel-wrapper::-webkit-scrollbar { 
-    display: none; } /* Chrome/Safari */
-
-.carousel-item {
-    flex: 0 0 100vw; /* ancho del slide visible (ajusta) */
-    scroll-snap-align: center;
-    box-sizing: border-box;
-}
-.carousel-item img {
+ .fondo-rupaul {
+    position: sticky;
     width: 100%;
-    height: min(80vh, 900px);
-    object-fit: cover;
-    display: block;
+ } 
+
+ .codystar-title {
+    font-family: "Codystar", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-text-light); 
+    font-size: clamp(2.5rem, 8vw, 6rem); 
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9); 
+    margin: 0;
+    line-height: 1;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .carousel-item { flex: 0 0 95%; }
-    .carousel-item img { height: 240px; }
-}
-
-/* Indicador de scroll dentro del carrusel */
-.carousel-simple { position: relative; }
-
-.scroll-hint {
+.photo-overlay-text {
     position: absolute;
-    right: 18px;
     top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.48);
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 999px;
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-    font-weight: 700;
-    font-size: 16px;
-    pointer-events: none; /* no interfiere con el scroll */
-    z-index: 20;
-    box-shadow: 0 6px 18px rgba(158, 47, 125, 0.25);
-    backdrop-filter: blur(4px);
-    animation: hint-swipe 1.6s ease-in-out infinite;
-}
-.scroll-hint .label {
-    font-size: 20px;
-    opacity: 0.95;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 50; 
+    text-align: center;
+    width: 90%;
 }
 
-/* Animación ligera para indicar movimiento hacia la izquierda */
-@keyframes hint-swipe {
-    0%   { transform: translateY(-50%) translateX(0); opacity: 1; }
-    50%  { transform: translateY(-50%) translateX(-8px); opacity: 0.9; }
-    100% { transform: translateY(-50%) translateX(0); opacity: 1; }
+.quote-banner {
+    background-color: #ff9dfa; 
+    padding: 15px 5%;
+    text-align: center;
+    text-transform: uppercase;
+    position: sticky;
 }
 
-/* Ajustes móviles: más pequeño y sólo el chevron */
-@media (max-width: 768px) {
-    .scroll-hint { right: 10px; padding: 6px 8px; font-size: 14px; }
-    .scroll-hint .label { display: none; }
+.quote-text {
+    font-family: var(--font-urbanist);
+    color: var(--color-text-light);
+    font-size: clamp(1.4rem, 4vw, 2.5rem); 
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin: 0;
 }
 
 .main-nav ul {
     list-style: none;
-    display: flex; /* Flexbox para el menú desktop */
+    display: flex; 
     gap: 20px;
 }
 
@@ -147,9 +134,9 @@ p, a, li, button, input {
     border-radius: 5px;
 }
 
-/* Botón del menú (visible solo en móvil por defecto, oculto en desktop) */
+
 .menu-toggle {
-    display: none; /* Oculto en desktop */
+    display: none; 
     background: none;
     border: none;
     color: var(--color-text-light);
@@ -157,15 +144,14 @@ p, a, li, button, input {
     cursor: pointer;
 }
 
-/* Secciones Principales */
+
 main {
     padding: 20px 5%;
 }
 
 .hero-section {
-    background-color: var(--color-text-light);
+    padding: var(--padding-section); 
     text-align: center;
-    padding: 40px 20px;
     border-bottom: 3px solid var(--color-primary-pink);
     margin-bottom: 30px;
 }
@@ -179,58 +165,91 @@ main {
     text-decoration: none;
     font-weight: 700;
     border-radius: 5px;
-    transition: opacity 0.3s;
+    transition: background-color 0.3s;
 }
 
 .cta-button:hover {
-    opacity: 0.8;
+    background-color: var(--color-secondary-magenta);
 }
 
-/* Sección de Información (Uso de Flexbox - Adaptable) */
 .info-section {
-    display: flex; /* Flexbox */
-    justify-content: space-around;
+    display: flex; 
+    justify-content: center; 
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px; 
+    padding: var(--padding-section);
     margin-bottom: 30px;
     text-align: center;
 }
 
 .info-card {
-    flex: 1; /* Permite que las tarjetas crezcan/encojan */
-    min-width: 250px;
+    flex: 0 1 300px; 
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 2px solid var(--color-primary-pink); 
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(227, 11, 138, 0.2); 
 }
 
-/* Formulario (Obligatorio Maquetado y Validación JS) */
+
+.prices-section {
+    padding: var(--padding-section);
+    text-align: center;
+    border-top: 1px dashed var(--color-secondary-magenta);
+}
+
+.price-component {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.price-option {
+    flex: 0 1 300px;
+    padding: 25px;
+    background-color: var(--color-text-light);
+    border: 3px solid var(--color-primary-pink);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+.price-option:hover {
+    transform: translateY(-5px);
+}
+.price-option .price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #000;
+    margin-top: 10px;
+}
+
 .form-section {
-    background-color: #fce4ec; /* Rosa muy claro */
-    padding: 30px;
+    padding: var(--padding-section);
     border-radius: 8px;
     text-align: center;
+    margin-top: 40px;
 }
 
 #subscription-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     max-width: 400px;
     margin: 0 auto;
 }
 
 #subscription-form input {
-    padding: 10px;
+    padding: 12px;
     border: 2px solid var(--color-primary-pink);
     border-radius: 5px;
+    font-size: 1rem;
 }
 
 #subscription-form button {
     background-color: var(--color-primary-pink);
     color: var(--color-text-light);
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -239,10 +258,9 @@ main {
 }
 
 #subscription-form button:hover {
-    background-color: #a0065a; /* Tono más oscuro de rosa */
+    background-color: var(--color-secondary-magenta);
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 20px;
@@ -251,82 +269,89 @@ footer {
     margin-top: 40px;
 }
 
-/* Diseño Responsive (Uso de Media Queries - Obligatorio) */
+
 @media (max-width: 768px) {
     
     .main-header {
-        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        flex-wrap: wrap; 
         padding: 1rem;
+        position: relative;
     }
 
+    .logo-container { order: 1; }
+    .partner-logo { order: 2; height: 30px; margin-left: auto; }
+    .menu-toggle { display: block; order: 3; margin-left: 10px;}
+    
     .main-nav {
-        width: 100%; /* La navegación ocupa todo el ancho */
-        order: 3; /* Mueve la navegación debajo del logo */
-    }
-
-    .menu-toggle {
-        display: block; /* Muestra el botón de hamburguesa */
-        order: 2;
+        width: 100%; 
+        order: 4; 
     }
 
     .nav-menu {
-        display: none; /* Oculta el menú por defecto (será JS el que lo muestre) */
+        display: none; 
         flex-direction: column;
         width: 100%;
-        margin-top: 10px;
-        background-color: rgba(0, 0, 0, 0.1); /* Fondo claro para el menú desplegable */
+        position: absolute; 
+        top: 100%; 
+        left: 0;
+        background-color: var(--color-primary-pink); 
         padding: 10px 0;
+        z-index: 50;
     }
     
-    /* Clase para mostrar el menú con JS */
     .nav-menu.active {
         display: flex; 
-    }
-
-    .nav-menu li {
-        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     }
 
     .nav-menu a {
-        display: block;
-        padding: 10px;
-        color: var(--color-text-dark); /* Color de texto oscuro para el menú desplegado */
+        color: var(--color-text-light); 
+        padding: 10px 20px;
+        text-align: left;
     }
     
-    .info-section {
         flex-direction: column;
     }
-}
+    .price-component {
+        flex-direction: column;
+    }
+    .price-option {
+        margin: 0 auto;
+    }
 
-/* Estilos para Ventanas Modales (Obligatorio) */
+
+
 .modal {
-    display: none; /* Oculto por defecto */
+    display: none; 
     position: fixed;
-    z-index: 100;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
+    background-color: rgba(0,0,0,0.6); 
 }
 
 .modal-content {
     background-color: var(--color-text-light);
-    margin: 15% auto; /* Centrado vertical/horizontal */
-    padding: 20px;
-    border: 3px solid var(--color-primary-pink);
-    width: 80%;
-    max-width: 400px;
-    border-radius: 10px;
+    margin: 10% auto; 
+    padding: 30px;
+    border: 5px solid var(--color-primary-pink);
+    width: 90%;
+    max-width: 450px;
+    border-radius: 12px;
     text-align: center;
     position: relative;
+    animation: fadeIn 0.5s;
 }
 
 .close-button {
     color: var(--color-text-dark);
-    float: right;
-    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -335,4 +360,367 @@ footer {
     color: var(--color-primary-pink);
     text-decoration: none;
     cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/*--- Parte de los programas ---*/
+
+.program-hero {
+    background-color: var(--color-primary-pink);
+    color: var(--color-text-light);
+    padding: 100px 5%;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 0 0 10px 10px;
+}
+
+.program-hero h1 {
+    color: var(--color-text-light);
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 10px;
+}
+
+.program-hero .subtitle {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.schedule-section {
+    padding: 0 5%; 
+    margin-bottom: 40px;
+}
+
+.schedule-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    border-bottom: 3px solid var(--color-primary-pink);
+    display: inline-block;
+    padding-bottom: 5px;
+    width: auto;
+    display: block;
+    text-align: center;
+}
+
+.day-schedule {
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.day-schedule h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: left;
+    color: var(--color-secondary-magenta);
+}
+
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.event-card {
+    background-color: #fcf1f7; 
+    padding: 20px;
+    border-left: 5px solid var(--color-primary-pink);
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(227, 11, 138, 0.2);
+}
+
+.event-card h4 {
+    font-size: 1.2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.event-card p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.event-card .location {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--color-primary-pink);
+    background-color: #ffe8f2;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+}
+
+
+.multimedia-program-ad {
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.multimedia-program-ad .promo-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 768px) {
+
+    .day-schedule {
+        padding: 15px;
+    }
+    
+    .day-schedule h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
+
+/*--- parte de entradas ---*/
+
+.tickets-hero {
+    background: linear-gradient(135deg, var(--color-primary-pink) 0%, var(--color-secondary-magenta) 100%);
+    color: var(--color-text-light);
+    padding: 100px 5%;;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tickets-hero h1 {
+    color: var(--color-text-light);
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 10px;
+}
+
+.tickets-hero .subtitle {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ticket-options-section {
+    padding: var(--padding-section);
+    text-align: center;
+}
+
+.ticket-options-section h2 {
+    margin-bottom: 40px;
+}
+
+
+.options-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+    margin-top: 20px;
+}
+
+.ticket-card {
+    flex: 0 1 350px; 
+    background-color: var(--color-text-light);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+}
+
+.ticket-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary-pink);
+}
+
+.ticket-card h3 {
+    font-size: 1.6rem;
+    color: var(--color-text-dark);
+    margin-bottom: 10px;
+}
+
+.ticket-card .description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.features-list li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 1rem;
+}
+
+
+.price-box {
+    margin-top: auto; 
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.price-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.main-price {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--color-primary-pink);
+    display: block;
+    line-height: 1.1;
+}
+
+
+.vip-pass {
+    border: 3px solid var(--color-primary-pink);
+    box-shadow: 0 15px 30px rgba(227, 11, 138, 0.4);
+    background-color: #fefcfd;
+}
+
+.vip-pass h3 {
+    color: var(--color-primary-pink);
+}
+
+.vip-pass .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-primary-pink);
+    color: var(--color-text-light);
+    padding: 5px 15px;
+    border-radius: 0 12px 0 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+
+.buy-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+.warning-section {
+    padding: var(--padding-section);
+    background-color: #ffe8f2;
+    text-align: center;
+    border-top: 3px solid var(--color-secondary-magenta);
+}
+
+.warning-section .mic-img {
+    max-width: 250px;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.warning-section p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.inverted-button {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+}
+
+.inverted-button:hover {
+    background-color: #555;
+}
+
+@media (max-width: 768px) {
+    .ticket-card {
+        flex: 1 1 100%;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+/*--- menu hamburguesa ---*/
+
+.menu {
+    /* Menú visible y horizontal en escritorio */
+    display: flex; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menulink a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+
+/* ------------------------------------------------ */
+/* --- ADAPTABILIDAD (VISTA MÓVIL: MAX-WIDTH 768PX) --- */
+/* ------------------------------------------------ */
+@media (max-width: 768px) {
+    
+    /* 1. Muestra el botón de hamburguesa */
+    .burger {
+        display: block; 
+        color: white;
+        cursor: pointer;
+        font-size: 1.8rem;
+        z-index: 100;
+    }
+
+    /* 2. Oculta el menú por defecto en móvil */
+    .menu {
+        display: none; /* ❗ CLAVE: OCULTA EL MENÚ AL INICIO EN VISTA MÓVIL ❗ */
+        
+        /* Posiciona el menú desplegable justo debajo de la barra */
+        position: absolute;
+        top: 4rem; /* Ajusta esto a la altura de tu barra <nav> */
+        left: 0;
+        width: 100%;
+        background-color: #444; 
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        text-align: center;
+        z-index: 90;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* 3. Muestra el menú cuando JavaScript añade la clase 'active' */
+    .menu.active {
+        display: flex; 
+    }
+    
+    /* Estilos para los enlaces desplegados */
+    .menulink {
+        border-bottom: 1px solid #555;
+    }
 }
