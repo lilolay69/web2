@@ -28,18 +28,45 @@
                 <a href="programa.html" class="nav-link">Programa</a>
                 <a href="entradas.html" class="nav-link">Entradas</a>
             </nav>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <div class="overlay"></div>
-            </div>
-        </div>
+          <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="overlay" id="overlay"></div>
     </header>
-    <section class="fondo" aria-label="Imagen de cabecera">
-        <img src="https://ik.imagekit.io/luciasanz/RuPaul-Dragcon-02.jpg.webp?updatedAt=1762129655559" alt="RuPaul DragCon escenario" />
-    </section>
-        <p class="quote-text">TODOS NACIMOS DESNUDOS, LO DEMÁS ES DRAG.</p>
+   <section class="carousel-section">
+    
+    <div class="carousel-logo-overlay">
+        <img src="https://ik.imagekit.io/luciasanz/logoblanco3.png?updatedAt=1762278110965" 
+             alt="Logo del Festival DragCon" 
+             class="overlay-img">
+    </div>
+
+    <div class="carousel-scroll-container">
+        
+         <div class="carousel-item">
+            <img src="https://ik.imagekit.io/luciasanz/foto5.avif?updatedAt=1762272402526" alt="Fans del festival posando">
+        </div>
+
+        <div class="carousel-item">
+            <img src="https://ik.imagekit.io/luciasanz/foto4.avif?updatedAt=1762272345521" alt="Fotografía del escenario del festival DragCon">
+        </div>
+        
+        <div class="carousel-item">
+            <img src="https://ik.imagekit.io/luciasanz/dragcon-tout.jpg.webp?updatedAt=1762272816590" alt="Vista aérea de la convención DragCon">
+        </div>
+        
+        <div class="carousel-item">
+            <img src="https://ik.imagekit.io/luciasanz/5A8B1396-1-1.jpg?updatedAt=1762129036332" alt="Artistas drag actuando en el escenario">
+        </div>
+        
+    </div>
+</section>
+        <p class="quote-text">TODOS NACEMOS DESNUDOS, LO DEMÁS ES DRAG.</p>
+        <div class="quote-decor" aria-hidden="true">
+        <img class="quote-gif" src="https://ik.imagekit.io/luciasanz/gif.gif?updatedAt=1762171859837" alt="">
+    </div>
 
     <main>
        
@@ -47,8 +74,11 @@
             <h1>¡Únete a la Celebración Drag Más Grande del Mundo!</h1>
             <p>La convención de Nueva York vuelve con más queens, shows y diversión.</p>
             <a href="entradas.html" class="cta-button">Compra tus Entradas</a>
+         
         </section>
-
+            </div>
+        </section>
+    
         <section class="info-section">
             <div class="info-card">
                 <h2>Fecha</h2>
@@ -59,27 +89,40 @@
                 <p>JAVITS CENTER - Nueva York</p>
             </div>
         </section>
+        
+         <section class="program-lineup" aria-labelledby="lineup-title">
+  <h2 id="lineup-title">Lineup</h2>
 
-        <section class="prices-section" id="precios">
-            <h2>Tipos de Entrada</h2>
-            <div class="price-component">
-                <div class="price-option">
-                    <h3>Pase General (1 día)</h3>
-                    <p>Acceso a paneles y tiendas. Ideal para un día.</p>
-                    <p class="price">70€</p>
-                </div>
-                <div class="price-option">
-                    <h3>Pase VIP (3 días)</h3>
-                    <p>Acceso anticipado, asientos premium y meet & greets exclusivos.</p>
-                    <p class="price">350€</p>
-                </div>
-                <a href="entradas.html" class="cta-button">¡No te lo pierdas!</a>
-            </div>
+  <div class="lineup-poster">
+    <img src="https://ik.imagekit.io/luciasanz/CARTEL%20LINEUP%202.jpg?updatedAt=1762267467347" alt="Cartel Lineup DragCon" loading="lazy">
+  </div>
+</section>
+            <div class="lineup-poster">
+    <img src="https://ik.imagekit.io/luciasanz/Captura%20de%20pantalla%202025-11-04%20a%20las%2010.29.07.png?updatedAt=1762281162776"> 
+  </div>
         </section>
     </main>
+<div id="dateModal" class="modal-window">
+    <div class="modal-content-custom">
+        <span class="close-button">&times;</span>
+        
+        <h2 class="modal-title">¡Gran Anuncio!</h2>
+        
+        <p class="modal-text">
+            ¡La DragCon 2026 ya tiene fecha!
+            <br>
+            Del 15 al 17 de mayo en Los Ángeles Convention Center.
+             En una semana estarán a la venta las entradas
+            APUNTALO EN TU CALENDARIO
+        </p>
+        
+        <button id="closeModalBtn" class="modal-btn">Entendido</button>
+    </div>
+</div>
 
+<button id="openDateModalBtn" class="btn-modal">DRAGCON 2026</button>
     <footer>
-        <p>&copy; 2025 RuPaul's DragCon. <span class="credits">Imágenes: Fuente DragCon.</span></p>
+        <p>&copy; 2025 RuPaul's DragCon.</p>
     </footer>
     
     <script src="script.js"></script>
