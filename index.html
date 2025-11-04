@@ -14,33 +14,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Codystar&display=swap" rel="stylesheet">
 
+
 </head>
-<body>
+<body class="page-home">
     
     <header class="main-header">
         <div class="logo-container">
             <img src="https://ik.imagekit.io/luciasanz/logogpequen%CC%83o.png?updatedAt=1762128873570" alt="Logo de RuPaul's DragCon" class="dragcon-logo">
         </div>
         
-        <nav class="main-nav" aria-label="Navegación principal del festival">
-            <button class="menu-toggle" aria-expanded="false" aria-controls="navigation-menu" aria-label="Abrir menú de navegación"></button>
-            
-            <ul class="menu">
-                <li class="menulink"><a href="index.html">Inicio</a></li>
-                <li class="menulink"><a href="programa.html">Programa</a></li>
-                <li class="menulink"><a href="entradas.html">Entradas</a></li>
-                </ul>
-            
-            <div class="burger">
-                <i class="fas fa-bars"></i>
+        <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="programa.html" class="nav-link">Programa</a>
+                <a href="entradas.html" class="nav-link">Entradas</a>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="overlay"></div>
             </div>
-        </nav>
+        </div>
     </header>
-    
-     <img src="https://ik.imagekit.io/luciasanz/cara-effectapp%20(2)1.png?updatedAt=1762219356179" alt="fondo rupaul" class="fondo-rupaul">
-     <div class="photo-overlay-text">
+    <section class="fondo" aria-label="Imagen de cabecera">
+        <img src="https://ik.imagekit.io/luciasanz/RuPaul-Dragcon-02.jpg.webp?updatedAt=1762129655559" alt="RuPaul DragCon escenario" />
+    </section>
         <p class="quote-text">TODOS NACIMOS DESNUDOS, LO DEMÁS ES DRAG.</p>
-    </div>
 
     <main>
        
@@ -53,11 +52,11 @@
         <section class="info-section">
             <div class="info-card">
                 <h2>Fecha</h2>
-                <p>Por determinar (generalmente otoño)</p>
+                <p>Inicio el 24 de Nombiembre 2025</p>
             </div>
             <div class="info-card">
                 <h2>Lugar</h2>
-                <p>Javits Center - Nueva York</p>
+                <p>JAVITS CENTER - Nueva York</p>
             </div>
         </section>
 
@@ -66,32 +65,16 @@
             <div class="price-component">
                 <div class="price-option">
                     <h3>Pase General (1 día)</h3>
-                    <p>Acceso a paneles y tiendas. Ideal para fans de un día.</p>
-                    <p class="price">$70</p>
+                    <p>Acceso a paneles y tiendas. Ideal para un día.</p>
+                    <p class="price">70€</p>
                 </div>
                 <div class="price-option">
                     <h3>Pase VIP (3 días)</h3>
-                    <p>Acceso anticipado, asientos premium y *meet & greets* exclusivos.</p>
-                    <p class="price">$350</p>
+                    <p>Acceso anticipado, asientos premium y meet & greets exclusivos.</p>
+                    <p class="price">350€</p>
                 </div>
-                <a href="entradas.html" class="cta-button">Ver todos los pases</a>
+                <a href="entradas.html" class="cta-button">¡No te lo pierdas!</a>
             </div>
-        </section>
-        
-        <section class="form-section" id="contacto">
-            <h2>Suscríbete a Nuestro Newsletter</h2>
-            <form id="subscription-form">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <button type="submit">Suscribirme</button>
-            </form>
-             <div id="success-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-                 <div class="modal-content">
-                     <span class="close-button" aria-label="Cerrar ventana">&times;</span>
-                     <h3 id="modal-title">¡Suscripción Exitosa!</h3>
-                     <p>¡Gracias por suscribirte al newsletter de DragCon! Te avisaremos de todas las novedades.</p>
-                 </div>
-             </div>
         </section>
     </main>
 
@@ -99,7 +82,7 @@
         <p>&copy; 2025 RuPaul's DragCon. <span class="credits">Imágenes: Fuente DragCon.</span></p>
     </footer>
     
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>

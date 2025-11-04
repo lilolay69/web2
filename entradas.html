@@ -13,90 +13,81 @@
 </head>
 
 <body>
-    
-    <header class="main-header">
+     <header class="main-header">
         <div class="logo-container">
             <img src="https://ik.imagekit.io/luciasanz/logogpequen%CC%83o.png?updatedAt=1762128873570" alt="Logo de RuPaul's DragCon" class="dragcon-logo">
         </div>
         
-        <nav class="main-nav" aria-label="Navegación principal del festival">
-            <button class="menu-toggle" aria-expanded="false" aria-controls="navigation-menu" aria-label="Abrir menú de navegación">☰</button>
-            
-            <ul class="nav-menu" id="navigation-menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="programa.html">Programa</a></li>
-                <li><a href="entradas.html">Entradas</a></li>
-            </ul>
-        </nav>
+        <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="programa.html" class="nav-link">Programa</a>
+                <a href="entradas.html" class="nav-link">Entradas</a>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="overlay"></div>
+            </div>
+        </div>
     </header>
 
     <main>
         
         <section class="tickets-hero" aria-labelledby="tickets-title">
-            <h1 id="tickets-title">¡Consigue Tus Entradas, Hunty!</h1>
+            <h1 id="tickets-title">¡Consigue Tus Entradas diva</h1>
             <p class="subtitle">El acceso a la celebración más fabulosa del mundo te espera.</p>
         </section>
 
+        
         <section class="ticket-options-section">
             <h2>Elige Tu Experiencia Drag</h2>
-            
-            <div class="options-container">
-                
-                <article class="ticket-card general-pass">
-                    <h3>Pase General (3 Días)</h3>
-                    <p class="description">Acceso completo a la pista principal, tiendas de *merchandising* y paneles abiertos.</p>
-                    <ul class="features-list">
-                        <li>✅ Acceso a *vendor booths*.</li>
-                        <li>✅ Paneles y talleres generales.</li>
-                        <li>❌ *Meet & Greets* de pago extra.</li>
-                    </ul>
-                    <div class="price-box">
-                        <span class="price-label">Precio Total</span>
-                        <span class="main-price">$180</span>
-                    </div>
-                    <a href="#" class="cta-button buy-button">Comprar Pase General</a>
-                </article>
-
-                <article class="ticket-card vip-pass">
-                    <span class="badge">Más Popular</span>
-                    <h3>Pase VIP Experience</h3>
-                    <p class="description">El tratamiento de una Reina: Acceso prioritario, beneficios exclusivos y regalos.</p>
-                    <ul class="features-list">
-                        <li>⭐ **Entrada prioritaria** cada día.</li>
-                        <li>⭐ Acceso a *lounge* exclusivo.</li>
-                        <li>⭐ **Meet & Greets** con 3 reinas seleccionadas.</li>
-                        <li>⭐ Regalo de bienvenida (Swag Bag).</li>
-                    </ul>
-                    <div class="price-box">
-                        <span class="price-label">Precio Total</span>
-                        <span class="main-price">$450</span>
-                    </div>
-                    <a href="#" class="cta-button buy-button">Comprar VIP</a>
-                </article>
-
-                <article class="ticket-card day-pass">
-                    <h3>Pase Diario (Viernes)</h3>
-                    <p class="description">Ideal para una inmersión rápida. Válido solo para el día seleccionado.</p>
-                    <ul class="features-list">
-                        <li>✅ Acceso a *vendor booths*.</li>
-                        <li>✅ Eventos del día asignado.</li>
-                        <li>❌ No incluye re-entrada.</li>
-                    </ul>
-                    <div class="price-box">
-                        <span class="price-label">Precio Total</span>
-                        <span class="main-price">$75</span>
-                    </div>
-                    <a href="#" class="cta-button buy-button">Comprar Pase Diario</a>
-                </article>
-
-            </div>
         </section>
-        
-        <section class="warning-section">
-            <h2>⚠️ Nota Importante sobre *Meet & Greets*</h2>
-            <img src="https://ik.imagekit.io/luciasanz/dragcon_mic.jpg" alt="Micrófono en escenario de DragCon" class="mic-img">
-            <p>Los *Meet & Greets* individuales con Queens específicas fuera del paquete VIP requieren la compra de un ticket adicional en el stand de la Reina.</p>
-            <a href="index.html#contacto" class="cta-button inverted-button">¿Preguntas? Contáctanos</a>
+
+        <section class="booking-section" id="booking">
+            <h2>Reservar / Consultar Entradas</h2>
+
+            <form id="booking-form" class="booking-form" novalidate>
+                <div class="form-grid">
+                    <label>
+                        Nombre
+                        <input type="text" name="name" id="bf-name" required>
+                        <span class="error" data-for="name" aria-hidden="true"></span>
+                    </label>
+
+                    <label>
+                        Email
+                        <input type="email" name="email" id="bf-email" required>
+                        <span class="error" data-for="email" aria-hidden="true"></span>
+                    </label>
+
+                    <label>
+                        Tipo de Entrada
+                        <select name="ticket" id="bf-ticket" required>
+                            <option value="">Selecciona...</option>
+                            <option value="general">Pase General</option>
+                            <option value="vip">VIP Experience</option>
+                        </select>
+                        <span class="error" data-for="ticket" aria-hidden="true"></span>
+                    </label>
+
+                    <label>
+                        Cantidad
+                        <input type="number" name="quantity" id="bf-quantity" min="1" max="10" value="1" required>
+                        <span class="error" data-for="quantity" aria-hidden="true"></span>
+                    </label>
+                </div>
+
+                <label class="full">
+                    Mensaje (opcional)
+                    <textarea name="message" id="bf-message" rows="4" placeholder="Dudas, peticiones o notas..."></textarea>
+                </label>
+
+                <div class="form-actions">
+                    <button type="submit" class="cta-button">Enviar Consulta</button>
+                    <button type="button" id="booking-reset" class="cta-button secondary">Limpiar</button>
+                </div>
+            </form>
         </section>
 
     </main>
@@ -105,7 +96,7 @@
         <p>&copy; 2025 RuPaul's DragCon. <span class="credits">Imágenes: Fuente DragCon.</span></p>
     </footer>
     
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
